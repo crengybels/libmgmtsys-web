@@ -1,12 +1,14 @@
 //$(document).ready(getBorrowers)
 addEventListener("load", getBorrowers)
 
+const SERVER_URL = "https://lib-mgmt-system-demo.herokuapp.com";
+
 function getBorrowers(){
         $.ajax({
             crossDomain: true,
             contentType: "application/json; charset=utf-8",
             type: "GET",
-            url: "http://localhost:3000/api/getBorrowers",
+            url: SERVER_URL+"/api/getBorrowers",
             dataType: 'jsonp',
             success: (data) => {
                 var borrowers = data;

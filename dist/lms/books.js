@@ -1,6 +1,8 @@
 //$(document).ready(getBooks)
 addEventListener("load", getBooks)
 
+const SERVER_URL = "https://lib-mgmt-system-demo.herokuapp.com";
+
 var publishers;
 
 function getBooks(){
@@ -9,7 +11,7 @@ function getBooks(){
             crossDomain: true,
             contentType: "application/json; charset=utf-8",
             type: "GET",
-            url: "http://localhost:3000/api/getbooks",
+            url: SERVER_URL+"/api/getbooks",
             dataType: 'jsonp',
             success: (data) => {
                 var books = data;
@@ -30,7 +32,7 @@ function getBooks(){
                 crossDomain: true,
                 contentType: "application/json; charset=utf-8",
                 type: "GET",
-                url: "http://localhost:3000/api/getPublishers",
+                url: SERVER_URL+"/api/getPublishers",
                 dataType: 'jsonp',
                 success: (data) => {
                     var publishers = data;
