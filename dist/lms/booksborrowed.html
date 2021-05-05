@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Books - Library Management System</title>
+
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!--sidebar-->
+    <div class="sidebar">
+        <a style="pointer-events: none;"><strong>Menu</strong></a>
+        <a href="index.html">Books</a>
+        <a href="borrowers.html">Borrowers</a>
+        <a class="active">Books Borrowed</a>
+    </div>
+
+    <div class="content">
+        <h1>Library Management System</h1>
+        <div class="">
+            <h2 class="mt-5 d-inline">Books Borrowed</h2>
+            <button type="button" class="btn btn-light float-right" id="addRecord">Add Record</button>
+        </div>
+        
+
+        <table id="booksBorrowedTable" class="m-3 datatable">
+            <thead style="font-size: larger;">
+                <tr>
+                    <th>Book Title</th>
+                    <th>ISBN</th>
+                    <th>Borrower</th>
+                    <th>Contact #</th>
+                    <th>Date Borrowed</th>
+                    <th>Due Date</th>
+                    <th>Returned</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- The Modal -->
+    <div id="booksBorrowedModal" class="modal addrecordmodal">
+
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close p-2" id="btnClose" style="font-size: xx-large;">&times;</span>
+                <h2 class="text-center">Add Record</h2>
+
+                <div class="books-form p-3">
+                    <form>
+                        <input type="text" class="form-control mb-3" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control mb-3" placeholder="Author" aria-label="Author" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control mb-3" placeholder="ISBN" aria-label="ISBN" aria-describedby="basic-addon1">
+                        
+                        <div class="input-group mt-3">
+                            <button type="button" class="btn btn-primary mr-2" id="btnSave">Save</button>
+                            <button type="button" class="btn btn-light" id="btnCancel">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+
+    
+
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="booksborrowed.js"></script>
+  </body>
+</html>
