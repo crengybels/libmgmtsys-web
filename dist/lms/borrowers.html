@@ -17,9 +17,9 @@
     <!--sidebar-->
     <div class="sidebar">
         <a style="pointer-events: none;"><strong>Menu</strong></a>
-        <a href="index.html">Books</a>
+        <a href="index.html">Books Borrowed</a>
         <a class="active">Borrowers</a>
-        <a href="booksborrowed.html">Books Borrowed</a>
+        <a href="books.html">Books</a>
     </div>
 
     <div class="content">
@@ -34,11 +34,12 @@
             <thead style="font-size: larger;">
                 <tr>
                     <th>Student ID</th>
-                    <th>Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Course</th>
                     <th>Year</th>
                     <th>Contact</th>
-                    <th>Action</th>
+                    <!--<th>Action</th>-->
                 </tr>
             </thead>
             <tbody>
@@ -47,38 +48,64 @@
         </table>
     </div>
 
-    <!-- The Modal -->
-    <div id="borrowersModal" class="modal addrecordmodal">
-
+    <!-- Add record modal -->
+    <div id="borrowersModal" class="modal modals" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <!-- Modal content -->
-            <div class="modal-content">
-
-                    
-                <span class="close p-2" id="btnClose" style="font-size: xx-large;">&times;</span>
-                <h2 class="text-center">Add Record</h2>
-
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Record</h5>
+              <button type="button" class="close" id="btnClose" data-dismiss="modal" aria-label="Close" id="btnCloseAddModal">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
                 <div class="books-form p-3">
-                    <form>
-                        <input type="text" class="form-control mb-3" placeholder="Student ID" aria-label="Student ID" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control mb-3" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control mb-3" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control mb-3" placeholder="Course" aria-label="Course" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control mb-3" placeholder="Year" aria-label="Year" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control mb-3" placeholder="Contact" aria-label="Contact" aria-describedby="basic-addon1">
-                    
-                        <div class="input-group mt-3">
-                            <button type="button" class="btn btn-primary mr-2" id="btnSave">Save</button>
-                            <button type="button" class="btn btn-light" id="btnCancel">Cancel</button>
-                        </div>
+                    <form id="addBorrowerForm">
+                        <input type="text" class="form-control mb-3" placeholder="Student ID" aria-label="Student ID" aria-describedby="basic-addon1" id="txtStudentId">
+                        <input type="text" class="form-control mb-3" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1" id="txtFirstname">
+                        <input type="text" class="form-control mb-3" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1" id="txtLastname">
+                        <input type="text" class="form-control mb-3" placeholder="Course" aria-label="Course" aria-describedby="basic-addon1" id="txtCourse">
+                        <input type="text" class="form-control mb-3" placeholder="Year" aria-label="Year" aria-describedby="basic-addon1" id="txtYear">
+                        <input type="text" class="form-control mb-3" placeholder="Contact" aria-label="Contact" aria-describedby="basic-addon1" id="txtContact">
                     </form>
                 </div>
-                
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancel">Cancel</button>
+            </div>
+          </div>
         </div>
+    </div>
 
-    
-
+    <!-- Edit record modal -->
+    <div id="editBorrowerModal" class="modal modals" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Record</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCloseEditModal">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="books-form p-3">
+                    <form id="editBorrowerForm">
+                        <input type="text" class="form-control mb-3" placeholder="Student ID" aria-label="Student ID" aria-describedby="basic-addon1" id="txtEditStudentId">
+                        <input type="text" class="form-control mb-3" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1" id="txtEditFirstname">
+                        <input type="text" class="form-control mb-3" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1" id="txtEditLastname">
+                        <input type="text" class="form-control mb-3" placeholder="Course" aria-label="Course" aria-describedby="basic-addon1" id="txtEditCourse">
+                        <input type="text" class="form-control mb-3" placeholder="Year" aria-label="Year" aria-describedby="basic-addon1" id="txtEditYear">
+                        <input type="text" class="form-control mb-3" placeholder="Contact" aria-label="Contact" aria-describedby="basic-addon1" id="txtEditContact">
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btnSaveChanges">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelEdit">Cancel</button>
+            </div>
+          </div>
+        </div>
     </div>
 
     

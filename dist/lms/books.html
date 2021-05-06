@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Books - Library Management System</title>
+
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <!--sidebar-->
+    <div class="sidebar">
+        <a style="pointer-events: none;"><strong>Menu</strong></a>
+        <a href="index.html">Books Borrowed</a>
+        <a href="borrowers.html">Borrowers</a>
+        <a class="active">Books</a>
+        
+    </div>
+
+    <div class="content">
+        <h1>Library Management System</h1>
+        <div class="">
+            <h2 class="mt-5 d-inline">Books</h2>
+            <button type="button" class="btn btn-light float-right" id="addRecord">Add Record</button>
+        </div>
+        
+
+        <table id="booksTable" class="m-3 datatable">
+            <thead style="font-size: larger;">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Publisher</th>
+                    <!--<th>Action</th>-->
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add record modal -->
+    <div id="booksModal" class="modal modals" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Record</h5>
+              <button type="button" class="close" id="btnClose" data-dismiss="modal" aria-label="Close" id="btnCloseDeleteModal">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="books-form p-3">
+                    <form id="addBookForm">
+                        <input type="text" class="form-control mb-3" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" id="txtTitle">
+                        <input type="text" class="form-control mb-3" placeholder="Author" aria-label="Author" aria-describedby="basic-addon1" id="txtAuthor">
+                        <input type="text" class="form-control mb-3" placeholder="ISBN" aria-label="ISBN" aria-describedby="basic-addon1" id="txtISBN">
+                        <select class="form-control form-control-sm" id="publisherSelection">
+                            <option disabled>Select publisher</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btnSave">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelAdd">Cancel</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Edit record modal -->
+    <div id="editBookModal" class="modal modals" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Record</h5>
+              <button type="button" class="close" id="btnCloseEditModal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="books-form p-3">
+                    <form id="editBookForm">
+                        <input type="text" class="form-control mb-3" placeholder="Title" aria-label="Title" aria-describedby="basic-addon1" id="txtEditTitle">
+                        <input type="text" class="form-control mb-3" placeholder="Author" aria-label="Author" aria-describedby="basic-addon1" id="txtEditAuthor">
+                        <input type="text" class="form-control mb-3" placeholder="ISBN" aria-label="ISBN" aria-describedby="basic-addon1" id="txtEditISBN">
+                        <select class="form-control form-control-sm" id="editPublisherSelection">
+                            <option disabled>Select publisher</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="btnSaveChanges">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelEdit">Cancel</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Delete record modal -->
+    <div id="deleteBookModal" class="modal modals" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCloseDeleteModal">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this record?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" id="btnDelete">Delete</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelDelete">Cancel</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="books.js"></script>
+  </body>
+</html>
