@@ -2,7 +2,7 @@ html, body{
     height: 100%
 }
 .sidebar{
-    width: 300px;
+    width: 200px;
     background-color: #2F353A;
     height: 100%;
     position: fixed;
@@ -12,7 +12,7 @@ html, body{
     display: block;
     color: white !important;
     padding:20px;
-    font-size: x-large;
+    font-size: larger;
 }
 
 .sidebar a.active {
@@ -25,7 +25,7 @@ html, body{
 }
 
 .content{
-    margin-left: 300px;
+    margin-left: 200px;
     height: 100%;
     padding: 30px;
     background: #E4E5E6;
@@ -51,7 +51,7 @@ html, body{
     background-color: #ddd;
 }
 
-.addrecordmodal{
+.modals{
     display: none;
     border: none;
     z-index: 1;
@@ -66,6 +66,5 @@ html, body{
 }
 
 .books-form{
-    width: 50%;
     margin: 0 auto;
 }
